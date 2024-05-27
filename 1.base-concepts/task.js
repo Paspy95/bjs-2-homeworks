@@ -3,11 +3,11 @@
 function solveEquation(a, b, c) {
 	let arr = [];
 	let d = b ** 2 - 4 * a * c;
+	console.log('d = ' + d);
 	if (d < 0)
 		return false;
 	arr['discriminant'] = d;
-	console.log('d = ' + d)
-	if (d = 0)
+	if (d == 0)
 		arr['roots'] = (-b / 2 * a);
 	if (d > 0) {
 		let tmp = [];
