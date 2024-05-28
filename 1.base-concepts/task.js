@@ -1,21 +1,19 @@
 "use strict"
 
 function solveEquation(a, b, c) {
-	let arr = [];
-	let d = b ** 2 - 4 * a * c;
-	console.log('d = ' + d);
-	if (d < 0)
-		return false;
-	arr['discriminant'] = d;
-	if (d == 0)
-		arr['roots'] = (-b / 2 * a);
-	if (d > 0) {
-		let tmp = [];
-		tmp.push(-b + Math.sqrt(d)) / (2 * a);
-		tmp.push(-b - Math.sqrt(d)) / (2 * a);
-		arr['roots'] = tmp;
-	}
-	return arr;
+    let arr = [];
+    let d = b ** 2 - 4 * a * c;
+    if (d < 0)
+        return false;
+    if (d == 0)
+        arr['roots'] = (-b / 2 * a);
+    if (d > 0) {
+        let tmp = [];
+        tmp.push(-b + Math.sqrt(d)) / (2 * a);
+        tmp.push(-b - Math.sqrt(d)) / (2 * a);
+        arr['roots'] = tmp;
+    }
+    return arr;
 }
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
