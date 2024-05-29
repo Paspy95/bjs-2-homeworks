@@ -16,7 +16,7 @@ function getArrayParams(...arr) {
 	return {
 		min: min,
 		max: max,
-		avg: avg.toFixed(2)
+		avg: Number(avg.toFixed(2))
 	};
 }
 console.log(getArrayParams(-99, 99, 10))
