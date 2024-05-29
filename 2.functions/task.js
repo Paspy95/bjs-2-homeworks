@@ -16,7 +16,7 @@ function getArrayParams(...arr) {
 	return {
 		min: min,
 		max: max,
-		avg: avg
+		avg: avg.toFixed(2)
 	};
 }
 console.log(getArrayParams(-99, 99, 10))
@@ -38,6 +38,9 @@ function differenceMaxMinWorker(...arr) {
 	let max = Math.max(...arr);
 	let min = Math.min(...arr);
 	let difference = max - min;
+	if (arr.length === 0) {
+		return 0;
+	}
 	return difference;
 
 }
