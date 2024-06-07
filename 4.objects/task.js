@@ -2,33 +2,33 @@ function Student(name, gender, age) {
 	this.name = name;
 	this.gender = gender;
 	this.age = age;
+	this.marks = [];
 }
 
 Student.prototype.setSubject = function(subjectName) {
 	this.subject = subjectName;
-	subjectName = ["Algebra", "Geometry", "Physics", "Chemistry"];
-
 }
 
 Student.prototype.addMarks = function(...marks) {
 	if (this.marks === undefined) {
-		this.marks = [];
+		console.log("Плохая учеба");
+		return;
 	}
 	this.marks.push(...marks);
 }
 
 Student.prototype.getAverage = function() {
 	if (this.marks === undefined || this.marks.length === 0) {
-		return this.exclude;
+		return 0;
 	}
 	return this.marks.reduce((acc, item) => acc + item, 0) / this.marks.length;
 
 }
 
 Student.prototype.exclude = function(reason) {
-	this.excluded = reason;
 	delete this.marks;
 	delete this.subject;
+	this.excluded = reason;
 
 }
 let student1 = new Student("Василиса", "женский", 19);
