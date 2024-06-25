@@ -24,23 +24,23 @@ class Triangle {
 		this.b = b;
 		this.c = c;
 	}
-	get perimetr() {
+	get perimeter() {
 		return this.a + this.b + this.c;
 	}
 	get area() {
-		const p = this.perimetr / 2;
+		const p = this.perimeter / 2;
 		const area = Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c));
 		return +area.toFixed(3);
 	}
 
 }
 
-function getTringle(a, b, c) {
+function getTriangle(a, b, c) {
 	try {
 		return new Triangle(a, b, c);
 	} catch (error) {
 		return {
-			get perimetr() {
+			get perimeter() {
 				return "Ошибка! Треугольник не существует";
 			},
 			get area() {
