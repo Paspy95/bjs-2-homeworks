@@ -15,31 +15,14 @@ function validateCount(value) {
 	}
 }
 
-function parseCount(value) {
-	const parsedValue = Number.parseFloat(value);
-	if (Number.isNaN(parsedValue)) {
-		throw new Error("Невалидное значение");
-	}
-	return parsedValue;
-}
-
-function validateCount(value) {
-	try {
-		const parsedValue = parseCount(value);
-		return parsedValue;
-	} catch (error) {
-		return error;
-	}
-}
-
 class Triangle {
 	constructor(a, b, c) {
+		if ((a + b <= c) || (a + c <= b) || (b + c <= a)) {
+			throw new Error("Треугольник с такими сторонами не существует");
+		}
 		this.a = a;
 		this.b = b;
 		this.c = c;
-		if (a + b < c || a + c < b || b + c < a) {
-			throw new Error("Треугольник с такими сторонами не существует");
-		}
 	}
 	get perimetr() {
 		return this.a + this.b + this.c;
@@ -63,6 +46,6 @@ function getTringle(a, b, c) {
 			get area() {
 				return "Ошибка! Треугольник не существует";
 			}
-		}
+		};
 	}
 }
