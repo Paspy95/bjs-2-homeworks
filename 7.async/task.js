@@ -24,7 +24,7 @@ class AlarmClock {
 		const now = new Date();
 		let hours = now.getHours();
 		let minutes = now.getMinutes();
-		return '$(hours):$(minutes)';
+		return '${hours}:${minutes}';
 	}
 	start() {
 		if (this.intervalId) {
