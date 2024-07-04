@@ -1,20 +1,13 @@
-const {
-	start
-} = require("repl");
-const {
-	callback
-} = require("util");
-
 class AlarmClock {
 	constructor() {
 		this.alarmCollection = [];
-		this.invalidId = null;
+		this.intervalId = null;
 	}
 	addClock(time, callBack) {
 		if (!time || !callBack) {
 			throw new Error('Отсутствуют обязательные аргументы');
 		}
-		if (this.alarmCollection.find(item => item.time === time)) {
+		if (this.alarmCollection.some(alarm => alarm.time === time)) {
 			console.warn('Уже присутствует звонок на это же время');
 		}
 		const newAlarm = {
@@ -34,7 +27,7 @@ class AlarmClock {
 		return '$(hours):$(minutes)';
 	}
 	start() {
-		if (this.intevalId) {
+		if (this.intervalId) {
 			return;
 		}
 		this.intervalId = setInterval(() => {
