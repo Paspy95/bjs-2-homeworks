@@ -49,7 +49,7 @@ class AlarmClock {
 			alarm.canCall = true;
 		});
 	}
-	clearAlarm() {
+	clearAlarms() {
 		this.stop();
 		this.alarmCollection = [];
 	}
