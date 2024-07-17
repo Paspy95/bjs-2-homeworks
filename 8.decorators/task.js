@@ -12,7 +12,7 @@ function cachingDecoratorNew(func) {
 		}
 		let result = func(...args);
 		cache.push({
-			hash,
+			hash: hash
 			value: result
 		});
 		if (cache.length > 5) {
