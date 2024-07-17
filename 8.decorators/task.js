@@ -5,14 +5,14 @@ function cachingDecoratorNew(func) {
 
 	function wrapper(...args) {
 		const hash = md5(JSON.stringify(args));
-		let objectInCash = cache.find(item => item.hash === hash);
-		if (objectInCash) {
-			console.log("Из кэша: " + objectInCash.value, cache);
-			return "Из кэша: " + objectInCash.value;
+		let objectInCache = cache.find(item => item.hash === hash);
+		if (objectInCache) {
+			console.log("Из кэша: " + objectInCache.value, cache);
+			return "Из кэша: " + objectInCache.value;
 		}
 		let result = func(...args);
 		cache.push({
-			hash: hash
+			hash: hash,
 			value: result
 		});
 		if (cache.length > 5) {
