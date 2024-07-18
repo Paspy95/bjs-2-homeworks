@@ -33,11 +33,11 @@ function debounceDecoratorNew(func, delay) {
 			clearTimeout(timeoutId);
 			allCount++;
 		}
-		if (!timeoutId) {
-			console.log('первый сигнал', args);
-			func.apply(this, args);
-			count++;
-		}
+		// if (!timeoutId) {
+		//   console.log('первый сигнал', args);
+		//   func.apply(this, args);
+		//   count++;
+		// }
 		timeoutId = setTimeout(() => {
 			console.log('задержка больше 2000 милисекунд, сработал таймаут');
 			count++;
