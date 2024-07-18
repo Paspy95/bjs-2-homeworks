@@ -28,9 +28,9 @@ function debounceDecoratorNew(func, delay) {
 	let allCount = 0;
 
 	function wrapper(...args) {
+		clearTimeout(timeoutId);
 		if (timeoutId) {
 			console.log('уже есть таймаут', args);
-			clearTimeout(timeoutId);
 			allCount++;
 		}
 		if (!timeoutId) {
