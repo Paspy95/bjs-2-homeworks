@@ -41,7 +41,7 @@ function debounceDecoratorNew(func, delay) {
 		timeoutId = setTimeout(() => {
 			console.log('задержка больше 2000 милисекунд, сработал таймаут');
 			count++;
-			func.apply(this, args);
+			func.call(this,...args);
 			wrapper.count = count;
 		}, delay);
 		wrapper.allCount = allCount;
