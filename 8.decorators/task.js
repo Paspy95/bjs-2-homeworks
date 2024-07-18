@@ -2,11 +2,11 @@ function cachingDecoratorNew(func) {
 	let cache = [];
 
 	function wrapper(...args) {
-		const hash = args.join(",");
+		const hash = (JSON.stringify(args));
 		let objectInCache = cache.find(item => item.hash === hash);
 		if (objectInCache) {
-			console.log("Из кэша: " + objectInCache.value, cache);
-			return "Из кэша: " + objectInCache.value;
+			console.log("Из кеша: " + objectInCache.value, cache);
+			return "Из кеша: " + objectInCache.value;
 		}
 		let result = func(...args);
 		cache.push({
