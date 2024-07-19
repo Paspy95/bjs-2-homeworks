@@ -24,8 +24,8 @@ function cachingDecoratorNew(func) {
 
 function debounceDecoratorNew(func, delay) {
 	let timeoutId;
-	let count = [0];
-	let allCount = [0];
+	let count = 0;
+	let allCount = 0;
 
 	function wrapper(...args) {
 		if (timeoutId) {
