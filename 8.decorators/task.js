@@ -26,10 +26,10 @@ function debounceDecoratorNew(func, delay) {
 	let timeoutId;
 
 	function wrapper(...args) {
+		wrapper.allCount++;
 		if (timeoutId) {
 			clearTimeout(timeoutId);
 			console.log('уже есть таймаут', args);
-			wrapper.allCount++;
 		}
 		if (!timeoutId) {
 			console.log('первый сигнал', args);
