@@ -34,6 +34,7 @@ function debounceDecoratorNew(func, delay) {
 		if (!timeoutId) {
 			console.log('первый сигнал', args);
 			func.call(this, ...args);
+			wrapper.allCount=0;
 			wrapper.count++;
 		}
 		timeoutId = setTimeout(() => {
